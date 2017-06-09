@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="XFCogServices.MainPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:XFCogServices">
+
+    <Grid Padding="5" RowSpacing="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+
+
+        <!--<BoxView BackgroundColor="DarkGray" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="112" HeightRequest="112" Rotation="-10" />
+        <BoxView BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="110" HeightRequest="110" Rotation="-10"/>-->
+
+        <!--<BoxView BackgroundColor="DarkGray" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="112" HeightRequest="112" Rotation="-4" />
+        <BoxView BackgroundColor="White" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="110" HeightRequest="110" Rotation="-4"/>-->
+
+        <BoxView
+            BackgroundColor="DarkGray"
+            BindingContext="{x:Reference image}"
+            HeightRequest="{Binding Path=Height}"
+            HorizontalOptions="Center"
+            Rotation="-4"
+            Scale="0.9"
+            TranslationX="5"
+            TranslationY="5"
+            VerticalOptions="Center"
+            WidthRequest="{Binding Path=Width}" />
+
+        <Image
+            x:Name="image"
+            Aspect="AspectFit"
+            BackgroundColor="#FFE9EEF1"
+            HorizontalOptions="Center"
+            Rotation="-4"
+            Scale="0.9"
+            Source="{Binding ImageSource}"
+            VerticalOptions="Center" />
+
+        <ActivityIndicator HorizontalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="Center" />
+
+        <Button Grid.Row="1" BackgroundColor="Green" Command="{Binding CameraPhotoCommand}" Text="Take Photo" TextColor="White" />
+        <Button Grid.Row="2" BackgroundColor="Blue" Command="{Binding DevicePhotoCommand}" Text="Select Image" TextColor="White" />
+        <Button Grid.Row="3" BackgroundColor="Blue" Clicked="ImageSearch_Clicked" Text="Search Image" TextColor="White" />
+        <Button Grid.Row="4" BackgroundColor="Orange" Command="{Binding AnalyzePhotoCommand}" Text="Analyze" TextColor="White" />
+        <Button Grid.Row="5" BackgroundColor="DodgerBlue" Text="View Details" Clicked="Button_Clicked"/>
+
+        
+    </Grid>
+
+
+
+</ContentPage>
